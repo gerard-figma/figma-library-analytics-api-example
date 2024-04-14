@@ -17,4 +17,10 @@ Define three environment variables in your .env file (or at the top of the file 
 
 Addtionally, define the start and end dates in the script.
 
-Then run `python3 extract-library-data.py` on the command line. By default this will create two CSV files in `output/` detailing **actions by componant** and **actions by team** respectively.
+Then run `python3 extract-library-data.py` on the command line. 
+
+By default this will create four CSV files in `output/` for the given date range:
+ -actions by componant  
+ -actions by team
+ -usages by component
+ -usages by file
