@@ -94,8 +94,6 @@ def usages_by_component():
     # Export to CSV
     output.to_csv("output/usages_by_component.csv", encoding='utf-8',  index=False)
 
-
-
 def usages_by_file():
     params = "/usages?group_by=file&start_date=" + start_date + "&end_date=" + end_date + "&order=asc"
     url     = base_url + filename + params
