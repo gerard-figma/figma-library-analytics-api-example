@@ -1,11 +1,11 @@
-## Figma Library API Examples
+## Figma Library Analytics API Examples
 
-A simple Python script demonstrating the Figma Variables API to extract data to a CSV. In a more mature data pipeline, this could instead be inserted directly into a Data Warehouse such as Snowflake or BigQuery.
+A simple Python script demonstrating the Figma Library Analytics API to extract data to a CSV. In a more mature data pipeline, this could instead be inserted directly into a Data Warehouse such as Snowflake or BigQuery.
 
 
 ## Prerequisites
 
-To use the Figma Variables API  workflow, you must be a full member of an Enterprise org in Figma. 
+To use the Figma Library Analytics API  workflow, you must be a full member of an Enterprise org in Figma. 
 
 
 ## Usage
