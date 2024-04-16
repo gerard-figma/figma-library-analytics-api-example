@@ -12,7 +12,6 @@ To use the Figma Library Analytics API  workflow, you must be a full member of a
 
 Define three environment variables in your .env file (or at the top of the file if you're ok with that)
 - API_TOKEN: This is your unique Figma Personal Access Token
-- FIGMA_URL: This is the APIs base URL - 'https://api.figma.com/v1/analytics/libraries/' (Check before release)
 - FILENAME: The filename you wish to connect to
 
 Addtionally, define the start and end dates in the script.

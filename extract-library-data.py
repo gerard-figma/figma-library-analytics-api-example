@@ -7,8 +7,10 @@ import pandas as pd
 # Set env variables, using .env here
 load_dotenv()
 api_token = os.getenv("API_TOKEN")
-base_url = os.getenv("FIGMA_URL")
-filename = os.getenv("FILENAME")
+filename = os.getenv("FILENAME") # something like '6p8e19mTHzCJfRfShcRH9K', can just define it here
+
+# Endpoint
+base_url = 'https://api.figma.com/v1/analytics/libraries/'
 
 
 # Set the dates 
