@@ -7,7 +7,7 @@ import pandas as pd
 # Set env variables, using .env here
 load_dotenv()
 api_token = os.getenv("API_TOKEN")
-filename = os.getenv("FILENAME") # something like '6p8e19mTHzCJfRfShcRH9K', can just define it here
+filename = os.getenv("FILENAME") # something like '6p8e19mTHzCJfRfShcRH9K'
 
 # Endpoint
 base_url = 'https://api.figma.com/v1/analytics/libraries/'
