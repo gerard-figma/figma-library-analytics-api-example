@@ -1,3 +1,4 @@
 .env
 *.csv
 output/
+.DS_STORE
