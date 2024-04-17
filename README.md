@@ -10,7 +10,7 @@ To use the Figma Library Analytics API  workflow, you must be a full member of a
 
 ## Usage
 
-Define three environment variables in your .env file (or at the top of the file if you're ok with that)
+Define three environment variables in your .env [Python dotenv](https://pypi.org/project/python-dotenv/) if you're new to this) file (or at the top of the file if you're ok with that)
 - API_TOKEN: This is your unique Figma Personal Access Token
 - FILENAME: The filename you wish to connect to
 
