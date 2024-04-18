@@ -6,8 +6,8 @@ import pandas as pd
 
 # Set env variables, using .env here
 load_dotenv()
-api_token = os.getenv("API_TOKEN")
-filename = os.getenv("FILENAME") # something like '6p8e19mTHzCJfRfShcRH9K'
+figma_access_token = os.getenv("FIGMA_ACCESS_TOKEN")
+file_key = os.getenv("FILE_KEY") # something like '6p8e19mTHzCJfRfShcRH9K'
 
 # Endpoint
 base_url = 'https://api.figma.com/v1/analytics/libraries/'
@@ -21,9 +21,9 @@ end_date = '2024-04-05'
 # Actions by Component
 def actions_by_component():
     params = "/actions?group_by=component&start_date=" + start_date + "&end_date=" + end_date + "&order=asc"
-    url     = base_url + filename + params
+    url     = base_url + file_key + params
     cursorurl = url
-    headers = {'X-FIGMA-TOKEN' : api_token}
+    headers = {'X-FIGMA-TOKEN' : figma_access_token}
     response = requests.get(url, headers=headers)
 
     output = pd.DataFrame()
@@ -48,9 +48,9 @@ def actions_by_component():
 
 def actions_by_team():
     params = "/actions?group_by=team&start_date=" + start_date + "&end_date=" + end_date + "&order=asc"
-    url     = base_url + filename + params
+    url     = base_url + file_key + params
     cursorurl = url
-    headers = {'X-FIGMA-TOKEN' : api_token}
+    headers = {'X-FIGMA-TOKEN' : figma_access_token}
     response = requests.get(url, headers=headers)
     output = pd.DataFrame()
 
@@ -72,9 +72,9 @@ def actions_by_team():
 
 def usages_by_component():
     params = "/usages?group_by=component&start_date=" + start_date + "&end_date=" + end_date + "&order=asc"
-    url     = base_url + filename + params
+    url     = base_url + file_key + params
     cursorurl = url
-    headers = {'X-FIGMA-TOKEN' : api_token}
+    headers = {'X-FIGMA-TOKEN' : figma_access_token}
     response = requests.get(url, headers=headers)
     output = pd.DataFrame()
 
@@ -98,9 +98,9 @@ def usages_by_component():
 
 def usages_by_file():
     params = "/usages?group_by=file&start_date=" + start_date + "&end_date=" + end_date + "&order=asc"
-    url     = base_url + filename + params
+    url     = base_url + file_key + params
     cursorurl = url
-    headers = {'X-FIGMA-TOKEN' : api_token}
+    headers = {'X-FIGMA-TOKEN' : figma_access_token}
     response = requests.get(url, headers=headers)
 
     output = pd.DataFrame()
