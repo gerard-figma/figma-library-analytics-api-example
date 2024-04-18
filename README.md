@@ -7,10 +7,10 @@ A simple Python script demonstrating the Figma Library Analytics API to extract 
 
 To use the Figma Library Analytics API  workflow, you must be a full member of an Enterprise org in Figma. 
 
-You'll also need to install the following Python packages using `pip`,
--`pip3 install requests`
--`pip3 install python-dotenv`
--`pip3 install pandas`
+You'll also need to install the following Python packages using `pip`:  
+`pip3 install requests`  
+`pip3 install python-dotenv`  
+`pip3 install pandas`
 
 
 ## Usage

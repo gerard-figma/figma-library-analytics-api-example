@@ -14,6 +14,7 @@ base_url = 'https://api.figma.com/v1/analytics/libraries/'
 
 
 # Set the dates 
+# TODO: Let's default to today, today-365
 start_date = '2024-01-01'
 end_date = '2024-04-05'
 
