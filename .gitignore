@@ -1,3 +1,4 @@
 .env
 output/*.csv
 .DS_STORE
+CSVs/*.csv
