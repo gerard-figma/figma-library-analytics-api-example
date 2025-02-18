@@ -18,6 +18,14 @@ base_url = 'https://api.figma.com/v1/analytics/libraries/'
 start_date = '2024-09-01'
 end_date = '2025-04-05'
 
+# make some directories if they're not there already
+if not os.path.exists('./output/style'):
+    os.mkdir('./output/style')
+if not os.path.exists('./output/variable'):
+    os.mkdir('./output/variable')
+if not os.path.exists('./output/component'):
+    os.mkdir('./output/component')
+
 
 # COMPONENTS
 def component_actions_by_component():
