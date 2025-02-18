@@ -20,7 +20,7 @@ end_date = '2025-04-05'
 
 
 # COMPONENTS
-def actions_by_component():
+def component_actions_by_component():
     params = "/component/actions?group_by=component&start_date=" + start_date + "&end_date=" + end_date + "&order=asc"
     url     = base_url + file_key + params
     cursorurl = url
@@ -46,9 +46,9 @@ def actions_by_component():
             url = ''
 
     # Export to CSV
-    output.to_csv("output/actions_by_component.csv", encoding='utf-8',  index=False)
+    output.to_csv("output/component/component_actions_by_component.csv", encoding='utf-8',  index=False)
 
-def actions_by_team():
+def component_actions_by_team():
     params = "/actions?group_by=team&start_date=" + start_date + "&end_date=" + end_date + "&order=asc"
     url     = base_url + file_key + params
     cursorurl = url
@@ -70,9 +70,9 @@ def actions_by_team():
             print("No new data. we're done")
             url = ''
 
-    output.to_csv("output/actions_by_team.csv", encoding='utf-8',  index=False)
+    output.to_csv("output/component/component_actions_by_team.csv", encoding='utf-8',  index=False)
 
-def usages_by_component():
+def component_usages_by_component():
     params = "/usages?group_by=component&start_date=" + start_date + "&end_date=" + end_date + "&order=asc"
     url     = base_url + file_key + params
     cursorurl = url
@@ -96,9 +96,9 @@ def usages_by_component():
             url = ''
 
     # Export to CSV
-    output.to_csv("output/usages_by_component.csv", encoding='utf-8',  index=False)
+    output.to_csv("output/component/component_usages_by_component.csv", encoding='utf-8',  index=False)
 
-def usages_by_file():
+def component_usages_by_file():
     params = "/usages?group_by=file&start_date=" + start_date + "&end_date=" + end_date + "&order=asc"
     url     = base_url + file_key + params
     cursorurl = url
@@ -123,7 +123,7 @@ def usages_by_file():
             url = ''
 
     # Export to CSV
-    output.to_csv("output/usages_by_file.csv", encoding='utf-8',  index=False)
+    output.to_csv("output/component/component_usages_by_file.csv", encoding='utf-8',  index=False)
 
 
 # VARIABLES
@@ -153,7 +153,7 @@ def variable_actions_by_variable():
             url = ''
 
     # Export to CSV
-    output.to_csv("output/variable_actions_by_variable.csv", encoding='utf-8',  index=False)
+    output.to_csv("output/variable/variable_actions_by_variable.csv", encoding='utf-8',  index=False)
 
 def variable_actions_by_team():
     params = "/variable/actions?group_by=team&start_date=" + start_date + "&end_date=" + end_date + "&order=asc"
@@ -181,14 +181,14 @@ def variable_actions_by_team():
             url = ''
 
     # Export to CSV
-    output.to_csv("output/variable_actions_by_team.csv", encoding='utf-8',  index=False)
+    output.to_csv("output/variable/variable_actions_by_team.csv", encoding='utf-8',  index=False)
 
 
 def main():
-    actions_by_component()
-    actions_by_team()
-    usages_by_component()
-    usages_by_file()
+    component_actions_by_component()
+    component_actions_by_team()
+    component_usages_by_component()
+    component_usages_by_file()
     variable_actions_by_variable()
     variable_actions_by_team()
 
