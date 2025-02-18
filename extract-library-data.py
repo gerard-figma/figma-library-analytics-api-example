@@ -184,6 +184,195 @@ def variable_actions_by_team():
     output.to_csv("output/variable/variable_actions_by_team.csv", encoding='utf-8',  index=False)
 
 
+
+
+def variable_usages_by_variable():
+    params = "/variable/usages?group_by=variable&start_date=" + start_date + "&end_date=" + end_date + "&order=asc"
+    url     = base_url + file_key + params
+    cursorurl = url
+    headers = {'X-FIGMA-TOKEN' : figma_access_token}
+    response = requests.get(url, headers=headers)
+    print(url)
+
+    output = pd.DataFrame()
+
+    # This API paginates at 1000 rows, looping over it if result is >999
+    while url:  
+        json_data = response.json()
+        normalisedRows = pd.json_normalize(json_data['rows'], meta=['files_using', 'teams_using', 'usages' 'variable_key', 'variable_name', 'collection_key', 'collection_name'])
+        output = pd.concat([output, normalisedRows])
+
+        # check for another page and get it; if not, exit the loop
+        if json_data['next_page']:
+            cursorurl = url + "&cursor=" + json_data['cursor']
+            print("Requesting next page: " + cursorurl)
+            response = requests.get(cursorurl, headers=headers)
+        else:
+            print("No new data. we're done")
+            url = ''
+
+    # Export to CSV
+    output.to_csv("output/variable/variable_usages_by_variable.csv", encoding='utf-8',  index=False)
+
+
+
+
+def variable_usages_by_file():
+    params = "/variable/usages?group_by=file&start_date=" + start_date + "&end_date=" + end_date + "&order=asc"
+    url     = base_url + file_key + params
+    cursorurl = url
+    headers = {'X-FIGMA-TOKEN' : figma_access_token}
+    response = requests.get(url, headers=headers)
+    print(url)
+
+    output = pd.DataFrame()
+
+    # This API paginates at 1000 rows, looping over it if result is >999
+    while url:  
+        json_data = response.json()
+        normalisedRows = pd.json_normalize(json_data['rows'], meta=['usages' 'team_name', 'file_name', 'workspace_name'])
+        output = pd.concat([output, normalisedRows])
+
+        # check for another page and get it; if not, exit the loop
+        if json_data['next_page']:
+            cursorurl = url + "&cursor=" + json_data['cursor']
+            print("Requesting next page: " + cursorurl)
+            response = requests.get(cursorurl, headers=headers)
+        else:
+            print("No new data. we're done")
+            url = ''
+
+    # Export to CSV
+    output.to_csv("output/variable/variable_usages_by_file.csv", encoding='utf-8',  index=False)
+
+
+
+
+# STYLES
+def style_actions_by_style():
+    params = "/style/actions?group_by=style&start_date=" + start_date + "&end_date=" + end_date + "&order=asc"
+    url     = base_url + file_key + params
+    cursorurl = url
+    headers = {'X-FIGMA-TOKEN' : figma_access_token}
+    response = requests.get(url, headers=headers)
+    print(url)
+
+    output = pd.DataFrame()
+
+    # This API paginates at 1000 rows, looping over it if result is >999
+    while url:  
+        json_data = response.json()
+        normalisedRows = pd.json_normalize(json_data['rows'], meta=['style_key', 'week', 'detachments','insertions', 'style_name', 'style_type' ])
+        output = pd.concat([output, normalisedRows])
+
+        # check for another page and get it; if not, exit the loop
+        if json_data['next_page']:
+            cursorurl = url + "&cursor=" + json_data['cursor']
+            print("Requesting next page: " + cursorurl)
+            response = requests.get(cursorurl, headers=headers)
+        else:
+            print("No new data. we're done")
+            url = ''
+
+    # Export to CSV
+    output.to_csv("output/style/style_actions_by_style.csv", encoding='utf-8',  index=False)
+
+
+def style_actions_by_team():
+    params = "/style/actions?group_by=team&start_date=" + start_date + "&end_date=" + end_date + "&order=asc"
+    url     = base_url + file_key + params
+    cursorurl = url
+    headers = {'X-FIGMA-TOKEN' : figma_access_token}
+    response = requests.get(url, headers=headers)
+    print(url)
+
+    output = pd.DataFrame()
+
+    # This API paginates at 1000 rows, looping over it if result is >999
+    while url:  
+        json_data = response.json()
+        normalisedRows = pd.json_normalize(json_data['rows'], meta=['week', 'detachments','insertions', 'team_name', 'workspace_name'])
+        output = pd.concat([output, normalisedRows])
+
+        # check for another page and get it; if not, exit the loop
+        if json_data['next_page']:
+            cursorurl = url + "&cursor=" + json_data['cursor']
+            print("Requesting next page: " + cursorurl)
+            response = requests.get(cursorurl, headers=headers)
+        else:
+            print("No new data. we're done")
+            url = ''
+
+    # Export to CSV
+    output.to_csv("output/style/style_actions_by_team.csv", encoding='utf-8',  index=False)
+
+
+
+
+
+def style_usages_by_style():
+    params = "/style/usages?group_by=style&start_date=" + start_date + "&end_date=" + end_date + "&order=asc"
+    url     = base_url + file_key + params
+    cursorurl = url
+    headers = {'X-FIGMA-TOKEN' : figma_access_token}
+    response = requests.get(url, headers=headers)
+    print(url)
+
+    output = pd.DataFrame()
+
+    # This API paginates at 1000 rows, looping over it if result is >999
+    while url:  
+        json_data = response.json()
+        normalisedRows = pd.json_normalize(json_data['rows'], meta=['files_using', 'teams_using', 'usages' 'style_key', 'style_name', 'style_type'])
+        output = pd.concat([output, normalisedRows])
+
+        # check for another page and get it; if not, exit the loop
+        if json_data['next_page']:
+            cursorurl = url + "&cursor=" + json_data['cursor']
+            print("Requesting next page: " + cursorurl)
+            response = requests.get(cursorurl, headers=headers)
+        else:
+            print("No new data. we're done")
+            url = ''
+
+    # Export to CSV
+    output.to_csv("output/style/style_usages_by_style.csv", encoding='utf-8',  index=False)
+
+
+
+
+def style_usages_by_file():
+    params = "/style/usages?group_by=file&start_date=" + start_date + "&end_date=" + end_date + "&order=asc"
+    url     = base_url + file_key + params
+    cursorurl = url
+    headers = {'X-FIGMA-TOKEN' : figma_access_token}
+    response = requests.get(url, headers=headers)
+    print(url)
+
+    output = pd.DataFrame()
+
+    # This API paginates at 1000 rows, looping over it if result is >999
+    while url:  
+        json_data = response.json()
+        normalisedRows = pd.json_normalize(json_data['rows'], meta=['usages' 'team_name', 'file_name', 'workspace_name'])
+        output = pd.concat([output, normalisedRows])
+
+        # check for another page and get it; if not, exit the loop
+        if json_data['next_page']:
+            cursorurl = url + "&cursor=" + json_data['cursor']
+            print("Requesting next page: " + cursorurl)
+            response = requests.get(cursorurl, headers=headers)
+        else:
+            print("No new data. we're done")
+            url = ''
+
+    # Export to CSV
+    output.to_csv("output/style/style_usages_by_file.csv", encoding='utf-8',  index=False)
+
+
+
+
+
 def main():
     component_actions_by_component()
     component_actions_by_team()
@@ -191,7 +380,12 @@ def main():
     component_usages_by_file()
     variable_actions_by_variable()
     variable_actions_by_team()
-
+    variable_usages_by_variable()
+    variable_usages_by_file()
+    style_actions_by_style()
+    style_actions_by_team()
+    style_usages_by_style()
+    style_usages_by_file()
 
 if __name__ == "__main__":
     main()
