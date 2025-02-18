@@ -23,8 +23,25 @@ Addtionally, define the start and end dates in the script. Figma stores 365 days
 
 Then run `python3 extract-library-data.py` on the command line. 
 
-By default this will create four CSV files in `output/` for the given date range:
+By default this will create three directories in `output/` for the given date range, for *components, variables and styles*, and save four CSV files into each:
+
+### Components
+
  -actions by componant  
  -actions by team
  -usages by component
+ -usages by file
+
+### Variables
+
+ -actions by variable  
+ -actions by team
+ -usages by variable
+ -usages by file
+
+ ### Styles
+
+ -actions by style  
+ -actions by team
+ -usages by style
  -usages by file
