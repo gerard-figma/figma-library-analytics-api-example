@@ -185,11 +185,11 @@ def variable_actions_by_team():
 
 
 def main():
-    # actions_by_component()
-    # actions_by_team()
-    # usages_by_component()
-    # usages_by_file()
-    # variable_actions_by_variable()
+    actions_by_component()
+    actions_by_team()
+    usages_by_component()
+    usages_by_file()
+    variable_actions_by_variable()
     variable_actions_by_team()
 
 
