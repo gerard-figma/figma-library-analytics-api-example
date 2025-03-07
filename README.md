@@ -27,21 +27,21 @@ By default this will create three directories in `output/` for the given date ra
 
 ### Components
 
- -actions by componant  
- -actions by team
- -usages by component
- -usages by file
+ - actions by componant  
+ - actions by team
+ - usages by component
+ - usages by file
 
 ### Variables
 
- -actions by variable  
- -actions by team
- -usages by variable
- -usages by file
+ - actions by variable  
+ - actions by team
+ - usages by variable
+ - usages by file
 
  ### Styles
 
- -actions by style  
- -actions by team
- -usages by style
- -usages by file
+ - actions by style  
+ - actions by team
+ - usages by style
+ - usages by file
